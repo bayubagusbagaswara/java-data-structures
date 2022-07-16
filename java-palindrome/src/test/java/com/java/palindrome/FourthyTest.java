@@ -5,28 +5,35 @@ import org.junit.jupiter.api.Test;
 
 public class FourthyTest extends AbstractTest {
 
-    // CARA 4: GIMANA KALO TANPA PERULANGAN? BISA PAKE REKURSIF
-    // jadi didalam function yang bertugas ngecek Palindrome, dia juga akan menjalankan function recursive
+    /** CARA 4: GIMANA KALO TANPA PERULANGAN? BISA PAKE REKURSIF
+     * jadi didalam function yang bertugas ngecek Palindrome, dia juga akan menjalankan function recursive
+     */
 
-    // BIKIN FUNCTION RECURSIVE
     private boolean isPalindromeRecursive(String value, int index) {
 
-        // yang paling penting adalah kapan rekursif itu selesai
+        /* yang paling penting adalah kapan rekursif itu selesai
+          kita cek jika menurut kondisi, dimana kondisi ini jika true, maka kita berhenti dari rekursif nya
+         */
 
-        // kita cek jika menurut kondisi, dimana kondisi ini jika true, maka kita berhenti dari rekursif nya
+        // Misal KODOK, maka index harus < 2
+        // jadi hanya dicek mulai dari index 0 sampai index 1
         if (index < value.length() / 2) {
             int indexAwal = index;
             int indexAkhir = value.length() - index - 1;
 
-            // kita cek, jika data dari kanan itu tidak sama dengan data dari kiri
-            // maka kita return false
-            // jadi berhenti perulangannya, karena data sudah tidak palindrome
+            /*
+              kita cek, jika data dari kanan itu tidak sama dengan data dari kiri
+              maka kita return false
+              jadi berhenti perulangannya, karena data sudah tidak palindrome
+             */
             if (value.charAt(indexAwal) != value.charAt(indexAkhir)) {
-                return false;
+                return false; // bukan Palindrome
             } else {
-                // nah disini kita panggil lagi rekursif nya
-                // karena disini nilainya true, data dari kanan dan dari kiri itu nilainya sama
-                // tapi disini kita naikan index nya, agar nilai perulangannya berganti
+                /*
+                  nah disini kita panggil lagi rekursif nya
+                  karena disini nilainya true, data dari kanan dan dari kiri itu nilainya sama
+                  tapi disini kita naikan index nya, agar nilai perulangannya berganti
+                 */
                 return isPalindromeRecursive(value, index + 1);
             }
         } else {

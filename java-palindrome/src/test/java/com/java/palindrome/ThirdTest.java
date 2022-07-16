@@ -15,13 +15,21 @@ public class ThirdTest extends AbstractTest {
     // intinya lebih menghemat waktu, karena tidak perlu baca data seluruhnya, hanya sampai data paling tengah
 
     public boolean isPalindrome(String value) {
+
         for (int i = 0; i < value.length() / 2; i++) {
             int indexAwal = i;
             int indexAkhir = value.length() - i - 1;
+
             log.info("{} : {}", indexAwal, indexAkhir);
             log.info("======");
+
+            // misal KODOK
+            // value[0] = K : value[4] = K, sama
+            // value[1] = O : value[3] = O, sama, stop perulangan, karena i sudah bernilai 2 (batas perulangannya)
+            // kalau kata bernilai GANJIL, maka karakter yang berada ditengah tidak berpengaruh, karena tidak berpengaruh ke palindrome
+
             if (value.charAt(indexAwal) != value.charAt(indexAkhir)) {
-                return false;
+                return false; // bukan palindrome
             }
         }
         return true;

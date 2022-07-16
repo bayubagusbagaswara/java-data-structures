@@ -10,18 +10,18 @@ public class FirstTest extends AbstractTest {
     // function untuk cek Palindrome
     public boolean isPalindrome(String value) {
 
-        // buat variable untuk menyimpan data hasil pembalikan datanya
+        // buat variable temp untuk menyimpan data hasil pembalikan datanya
+        // perulangan dimulai dari yang paling belakang, jadi perlu tau panjang string nya
+        // lalu masukkan tiap karakter ke variable temp
+        // perulangan dilakukan sampai stringnya habis dibaca, alias sampai index ke-0
+        // karena index itu mulai dari 0, maka nilai length selalu length - 1
+
         String temp = "";
 
-        // perulangan dimulai dari yang paling belakang, jadi perlu tau penjang datanya
-        // lalu masukkan tiap index[data] ke variable temp
-        // perulangan dilakukan sampai datanya habis, alias sampai index ke-0
-        // karena index itu mulai dari 0, maka nilai length selalu length-1
-
         for (int i = value.length()-1; i >= 0; i--) {
-            // simpan
             temp = temp + value.charAt(i);
         }
+
         System.out.println(temp);
         return temp.equals(value);
     }

@@ -24,10 +24,16 @@ public class SecondTest extends AbstractTest {
             int indexAwal = i;
             int indexAkhir = value.length() - i - 1; // kurangi i agar nilai index akhir menurun terus sampai index 0
 
-            // lakukan perbandingan
+            // cek apakah karakter dari index awal itu sama atau tidak dengan karakter dari index terakhir
+            // misal KODOK
+            // value[0] = K : value[4] = K (sama), lanjut perulangan
+            // value[1] = O : value[3] = O (sama), lanjut perulangan
+            // value[2] = D : value[2] = D (sama), lanjut perulangan
+            // value[3] = O : value[1] = O (sama), lanjut perulangan
+            // value[4] = K : value[0] = K (sama), stop perulangan, karena i > length
+
             if (value.charAt(indexAwal) != value.charAt(indexAkhir)) {
-                // jika tidak sama maka balikan false
-                // artinya bukan Palindrome
+                // jika tidak sama, maka bukan palindrome
                 return false;
             }
         }
